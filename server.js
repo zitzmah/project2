@@ -19,6 +19,18 @@ mongoose.connection
 // create app object
 const app = express()
 
+// CREATE PATIENT MODEL
+const {Schema, model} = mongoose;
+
+const patientSchema = new Schema ({
+    name: String,
+    test: String,
+    testCompleted: Boolean
+})
+
+
+//MODEL
+const Patient = model("Patient", patientSchema)
 
 // routes
 app.get("/", (req, res) => {
