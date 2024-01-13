@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head.ejs")%>
+<body>
+    <%-include("../partials/header.ejs")%>
+
+    <main>
+        <div>
+            <article>
+                <h2>
+                    <%= patient.name%> - <%=patient.testCompleted ? "Test Completed" : "Test In Progress"%>
+                </h2>
+                <h3><%patient.test%></h3>
+                <a href = "/<%=patient._id%>/edit"><button>Edit</button></a>
+                <form action ="/<%=patient._id%>?_method=DELETE" method="POST"><button>Delete</button></form>
+                <a href="/"><button>Back to Main</button></a>
+            </article>
+        </div>
+    </main>
+</body>
+</html>

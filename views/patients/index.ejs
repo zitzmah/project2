@@ -7,9 +7,9 @@
         <div>
             <% for(let patient of patients){ %>
                 <article>
-                    <a href="/patients/<%=patient._id%> - <%= patient.testCompleted ? "Test Results Available" : "Test in Progress"%>">
+                    <a href="/<%=patient._id%>">
                     <h2>
-                        <%-patient.name %>
+                        <%-patient.name %> - <%= patient.testCompleted ? "Test Results Available" : "Testing in Progress"%>
                     </h2>
                     <h3>
                         <%=patient.test%>

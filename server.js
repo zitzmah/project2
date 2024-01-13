@@ -38,10 +38,7 @@ app.use(methodOverride("_method"))
 app.use(express.urlencoded({extended: true}))
 app.use(express.static("public"))
 
-// routes
-// app.get("/", (req, res) => {
-//     res.send("It's Working")
-// })
+//ROUTES
 
 //SEED ROUTE
 app.get("/seed", async (req, res)=>{
@@ -79,6 +76,18 @@ app.get("/", async (req, res)=>{
     try{
         const patients = await Patient.find({})
         res.render("patients/index.ejs", {patients})
+    } catch(error){
+        console.log(error.message)
+        res.status(400).send("error, read logs for details")
+    }
+})
+
+//SHOW
+app.get("/:id", async (req, res)=>{
+    try{
+        const id = req.params.id
+        const patient = await Patient.findById(id)
+        res.render("patients/show.ejs", { patient })
     } catch(error){
         console.log(error.message)
         res.status(400).send("error, read logs for details")
