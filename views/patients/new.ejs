@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head.ejs")%>
+<body>
+    <%-include("../partials/header.ejs")%>
+    <main>
+        <div>
+            <form action="/" method="post">
+                <fieldset>
+                    <legend>Add a new Patient</legend>
+                <label>Name: <input type="text" name="name"/></label>
+                <label>Date of Birth: <input type="date" name="dateOfBirth"/></label>
+                <label>Test: 
+                    <select id="testMenu" name="test">
+                        <option>Blood Culture</option>
+                        <option>Respiratory Culture</option>
+                        <option>Body Fluid Culture</option>
+                        <option>Urine Culture</option>
+                    </select>
+                </label>
+
+            </fieldset>
+            <button>Add New Patient</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

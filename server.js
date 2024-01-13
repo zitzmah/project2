@@ -82,6 +82,29 @@ app.get("/", async (req, res)=>{
     }
 })
 
+//NEW
+app.get("/new", (req, res)=>{
+    res.render("patients/new.ejs")
+})
+
+//DELETE
+app.delete("/:id", async(req, res)=>{
+    const id = req.params.id
+    await Patient.findByIdAndDelete(id)
+    res.redirect("/")
+})
+
+//CREATE
+app.post("/", async(req, res)=>{
+    try{
+        await Patient.create(req.body)
+        res.redirect("/")
+    } catch(error){
+        console.log(error.message)
+        res.status(400).send("error, read logs for details")
+    }
+})
+
 //SHOW
 app.get("/:id", async (req, res)=>{
     try{

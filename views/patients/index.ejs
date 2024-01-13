@@ -3,16 +3,17 @@
 <%-include("../partials/head.ejs")%>
 <body>
     <%-include("../partials/header.ejs")%>
+    <a href="/new"><button>Add a New Patient</button></a>
     <main>
         <div>
             <% for(let patient of patients){ %>
                 <article>
                     <a href="/<%=patient._id%>">
                     <h2>
-                        <%-patient.name %> - <%= patient.testCompleted ? "Test Results Available" : "Testing in Progress"%>
+                        <%=patient.name %> <br> <%=patient.dateOfBirth.toLocaleDateString()%>
                     </h2>
                     <h3>
-                        <%=patient.test%>
+                        <%=patient.test%> - <%= patient.testCompleted ? "Test Results Available" : "Testing in Progress"%>
                     </h3>
                     </a>
                 </article>
