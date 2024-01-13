@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head.ejs")%>
+<body>
+    <%-include("../partials/header.ejs")%>
+    <main>
+        <div>
+            <% for(let patient of patients){ %>
+                <article>
+                    <a href="/patients/<%=patient._id%> - <%= patient.testCompleted ? "Test Results Available" : "Test in Progress"%>">
+                    <h2>
+                        <%-patient.name %>
+                    </h2>
+                    <h3>
+                        <%=patient.test%>
+                    </h3>
+                    </a>
+                </article>
+
+            <%}%>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -16,25 +16,73 @@ mongoose.connection
 .on("close", () => console.log("Disconnected from Mongoose"))
 .on("error", (error) => console.log(error))
 
-// create app object
-const app = express()
-
 // CREATE PATIENT MODEL
 const {Schema, model} = mongoose;
 
 const patientSchema = new Schema ({
     name: String,
+    dateOfBirth: Date,
     test: String,
     testCompleted: Boolean
 })
 
-
 //MODEL
 const Patient = model("Patient", patientSchema)
 
+// create app object
+const app = express()
+
+//REGISTER MIDDLEWARE
+app.use(morgan("dev"))
+app.use(methodOverride("_method"))
+app.use(express.urlencoded({extended: true}))
+app.use(express.static("public"))
+
 // routes
-app.get("/", (req, res) => {
-    res.send("It's Working")
+// app.get("/", (req, res) => {
+//     res.send("It's Working")
+// })
+
+//SEED ROUTE
+app.get("/seed", async (req, res)=>{
+    try{
+        const starterPatients =[
+            {
+                name: "Alice Johnson",
+                test: "blood culture",
+                testCompleted: true,
+                dateOfBirth: new Date("1995-03-12")
+            },
+            {
+                name: "Bob Smith",
+                test: "blood culture",
+                testCompleted: false,
+                dateOfBirth: new Date("1980-07-22")
+            },
+            {
+                name: "Charlie Brown",
+                test: "respiratory culture",
+                testCompleted: true,
+                dateOfBirth: new Date("1992-11-05")
+            }]
+            await Patient.deleteMany({})
+            const patients = await Patient.create(starterPatients)
+            res.json(patients)
+    } catch(error){
+        console.log(error.message)
+        res.send("There was an error read logs for error details")
+    }
+})
+
+//INDEX
+app.get("/", async (req, res)=>{
+    try{
+        const patients = await Patient.find({})
+        res.render("patients/index.ejs", {patients})
+    } catch(error){
+        console.log(error.message)
+        res.status(400).send("error, read logs for details")
+    }
 })
 
 // turn on the server (the listener)
