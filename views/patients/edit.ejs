@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("../partials/head.ejs") %>
+<body>
+    <%-include("../partials/header.ejs") %>
+
+    <main>
+        <div>
+            <form action="/<%=patient._id%>?_method=PUT" method="post">
+                <fieldset>
+                    <legend>Update <%=patient.test%></legend>
+                    <label>Gram Stain:
+                        <select id="gramStain" name="gramStain">
+                            <option>Gram Positive Cocci</option>
+                            <option>Gram Negative Cocci</option>
+                            <option>Gram Positive Bacilli</option>
+                            <option>Gram Negative Bacilli</option>
+                        </select>
+                    </label>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Plate</th>
+                                <th>Colony Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for (let i = 0; i < patient.plates.length; i++) {%>
+                                <tr>
+                                    <td><%=patient.plates[i]%></td>
+                                    <td><input type="text" name = "colonyDescription" value="<%=patient.colonyDescription[i]%>"></td>
+                                </tr>
+                            <%}%>
+                        </tbody>
+                    </table>
+
+                </fieldset>
+                <button>Update Test</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

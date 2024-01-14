@@ -5,10 +5,14 @@
 const {Schema, model} = mongoose;
 
 const patientSchema = new Schema ({
-    name: String,
-    dateOfBirth: Date,
+    name: {type: String, required: true},
+    dateOfBirth: {type: Date, required: true},
     test: String,
-    testCompleted: Boolean
+    testCompleted: Boolean,
+    gramStain: String,
+    plates: {type: [String]},
+    colonyDescription: {type: [String]},
+    bacteriaIdentification: String
 })
 
 

@@ -13,7 +13,7 @@ module.exports = [
     },
     {
         name: "Charlie Brown",
-        test: "respiratory culture",
+        test: "body fluid culture",
         testCompleted: true,
         dateOfBirth: new Date("1992-11-05")
     },

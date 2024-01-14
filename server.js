@@ -94,11 +94,30 @@ app.delete("/:id", async(req, res)=>{
     res.redirect("/")
 })
 
+//UPDATE
+app.put("/:id", async (req, res)=>{
+    const id = req.params.id
+    await Fruit.findByIdAndUpdate(id, req.body)
+    res.redirect('')
+})
+
 //CREATE
 app.post("/", async(req, res)=>{
     try{
         await Patient.create(req.body)
         res.redirect("/")
+    } catch(error){
+        console.log(error.message)
+        res.status(400).send("error, read logs for details")
+    }
+})
+
+//EDIT
+app.get("/:id/edit", async (req, res)=>{
+    try{
+        const id = req.params.id
+        const patient = await Patient.findById(id)
+        res.render("patients/edit.ejs", { patient })
     } catch(error){
         console.log(error.message)
         res.status(400).send("error, read logs for details")
