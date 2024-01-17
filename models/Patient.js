@@ -1,23 +1,23 @@
 //DEPENDENCIES
-
+const mongoose = require("mongoose")
 
 // CREATE PATIENT MODEL
-const {Schema, model} = mongoose;
+// const {Schema, model} = mongoose;
 
-const patientSchema = new Schema ({
+const patientSchema = new mongoose.Schema ({
     name: {type: String, required: true},
     dateOfBirth: {type: Date, required: true},
     test: String,
     testCompleted: Boolean,
     gramStain: String,
-    plates: {type: [String]},
-    colonyDescription: {type: [String]},
+    plates: String,
+    colonyDescription: String,
     bacteriaIdentification: String
 })
 
 
 //MODEL
-const Patient = model("Patient", patientSchema)
+const Patient = mongoose.model("Patient", patientSchema)
 
 //export model
-module.exports = Fruit
+module.exports = Patient

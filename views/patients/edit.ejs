@@ -6,6 +6,8 @@
 
     <main>
         <div>
+            <h2><%=patient.name%></h2>
+            <h3>Date of Birth: <%=patient.dateOfBirth%></h3>
             <form action="/<%=patient._id%>?_method=PUT" method="post">
                 <fieldset>
                     <legend>Update <%=patient.test%></legend>
@@ -21,19 +23,33 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Plate</th>
+                                <th>Plates</th>
                                 <th>Colony Description</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% if (patient.plates && patient.colonyDescription) {%>
                             <%for (let i = 0; i < patient.plates.length; i++) {%>
                                 <tr>
                                     <td><%=patient.plates[i]%></td>
-                                    <td><input type="text" name = "colonyDescription" value="<%=patient.colonyDescription[i]%>"></td>
+                                    <td><%= patient.colonyDescription[i]%>"></td>
                                 </tr>
                             <%}%>
+                            <%}%>
+                            <tr>
+                                <td><input type="text" name="plates" placeholder="Enter Plate"></td>
+                                <td><input type="text" name="colonyDescription" placeholder="Enter Colony Description"></td>
+                                <td><input type="text" name="name" placeholder="Enter Name"></td>
+                                <td><input type="date" name="dateOfBirth" placeholder="Enter date of birth"></td>
+                                <td><input type="text" name="test" placeholder="Enter test"></td>
+                                <td><input type="checkbox" name="testCompleted"></td>
+
+
+                            </tr>
                         </tbody>
                     </table>
+
+                    <label>Identification: <input type="text" name="bacteriaIdentification" value="<%= patient.bacteriaIdentification !== undefined ? patient.bacteriaIdentification : '' %>"></label>
 
                 </fieldset>
                 <button>Update Test</button>

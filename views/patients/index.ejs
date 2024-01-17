@@ -10,10 +10,13 @@
                 <article>
                     <a href="/<%=patient._id%>">
                     <h2>
-                        <%=patient.name %> <br> <%=patient.dateOfBirth.toLocaleDateString()%>
+                        <%=patient.name %> <br> <%=patient.dateOfBirth%>
                     </h2>
                     <h3>
-                        <%=patient.test%> - <%= patient.testCompleted ? "Test Results Available" : "Testing in Progress"%>
+                        <%=patient.test%> - <%= patient.testCompleted ? "Test Completed" : "Testing in Progress"%>
+                        <%if(patient.testCompleted) {%>
+                            <br> Culture Identification: <%=patient.bacteriaIdentification%>
+                        <%}%>
                     </h3>
                     </a>
                 </article>
