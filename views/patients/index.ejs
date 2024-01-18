@@ -10,7 +10,7 @@
                 <article>
                     <a href="/<%=patient._id%>">
                     <h2>
-                        <%=patient.name %> <br> <%=patient.dateOfBirth%>
+                        Name: <%=patient.name %> <br> Date of Birth: <%=patient.dateOfBirth.toLocaleDateString()%>
                     </h2>
                     <h3>
                         <%=patient.test%> - <%= patient.testCompleted ? "Test Completed" : "Testing in Progress"%>
@@ -20,6 +20,8 @@
                     </h3>
                     </a>
                 </article>
+
+                <a href="/<%=patient._id%>/edit"><button>Edit Patient Test</button></a>
 
             <%}%>
         </div>

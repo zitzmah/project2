@@ -3,12 +3,19 @@
 <%-include("../partials/head.ejs") %>
 <body>
     <%-include("../partials/header.ejs") %>
+    <a href="/"><button>Back to Main</button></a>
+    <a href="/<%=patient._id%>"><button>Back to Patient Test</button></a>
 
     <main>
         <div>
             <h2><%=patient.name%></h2>
-            <h3>Date of Birth: <%=patient.dateOfBirth%></h3>
+            <h3>Date of Birth: <%=patient.dateOfBirth.toLocaleDateString()%></h3>
             <form action="/<%=patient._id%>?_method=PUT" method="post">
+                <fieldset>
+                    <legend> Update <%=patient.name%>'s Information</legend>
+                    <label>Name: <input type="text" name="name" placeholder="patient name" value="<%=patient.name%>"></label>
+                    <label>Date of Birth: <input type="date" name="dateOfBirth" value="<%=patient.dateOfBirth.toISOString().split('T')[0]%>"></label>
+                </fieldset>
                 <fieldset>
                     <legend>Update <%=patient.test%></legend>
                     <label>Gram Stain:
@@ -19,40 +26,14 @@
                             <option>Gram Negative Bacilli</option>
                         </select>
                     </label>
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Plates</th>
-                                <th>Colony Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% if (patient.plates && patient.colonyDescription) {%>
-                            <%for (let i = 0; i < patient.plates.length; i++) {%>
-                                <tr>
-                                    <td><%=patient.plates[i]%></td>
-                                    <td><%= patient.colonyDescription[i]%>"></td>
-                                </tr>
-                            <%}%>
-                            <%}%>
-                            <tr>
-                                <td><input type="text" name="plates" placeholder="Enter Plate"></td>
-                                <td><input type="text" name="colonyDescription" placeholder="Enter Colony Description"></td>
-                                <td><input type="text" name="name" placeholder="Enter Name"></td>
-                                <td><input type="date" name="dateOfBirth" placeholder="Enter date of birth"></td>
-                                <td><input type="text" name="test" placeholder="Enter test"></td>
-                                <td><input type="checkbox" name="testCompleted"></td>
-
-
-                            </tr>
-                        </tbody>
-                    </table>
-
+                    <label>Plates: <input type="text" name="plates" value="<%=patient.plates%>"></label>
+                    <label>Colony Description: <input type="text" name="colonyDescription" value="<%=patient.colonyDescription%>"></label>
                     <label>Identification: <input type="text" name="bacteriaIdentification" value="<%= patient.bacteriaIdentification !== undefined ? patient.bacteriaIdentification : '' %>"></label>
+                    <lable>Test Completed: <input type="checkbox" name="testCompleted" <%patient.testCompleted ? "checked" : ""%>></lable>
 
                 </fieldset>
                 <button>Update Test</button>
+
             </form>
         </div>
     </main>
