@@ -3,7 +3,8 @@
 <%-include("../partials/head.ejs")%>
 <body>
     <%-include("../partials/header.ejs")%>
-    <a href="/new"><button>Add a New Patient</button></a>
+    <div class="navbar"><a href="/new"><button>Add a New Patient</button></a></div>
+    
     <main>
         <div>
             <% for(let patient of patients){ %>

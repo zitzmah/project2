@@ -8,12 +8,17 @@
         <div>
             <article>
                 <h2>
-                    <%= patient.name%> - <%=patient.testCompleted ? "Test Completed" : "Test In Progress"%>
+                    <%= patient.name%>
                 </h2>
+                <h3><%=patient.dateOfBirth.toLocaleDateString()%> <br> <%=patient.testCompleted ? "Test Completed" : "Test In Progress"%></h3>
+                <div>
+                    <nav>
+                        <a href="/"><button>Back to Main</button></a>
+                    </nav>
+                </div>
                 <h3><%patient.test%></h3>
                 <a href = "/<%=patient._id%>/edit"><button>Edit</button></a>
                 <form action ="/<%=patient._id%>?_method=DELETE" method="POST"><button>Delete</button></form>
-                <a href="/"><button>Back to Main</button></a>
             </article>
         </div>
     </main>

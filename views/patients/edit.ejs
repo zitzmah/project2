@@ -2,9 +2,21 @@
 <html lang="en">
 <%-include("../partials/head.ejs") %>
 <body>
+    <div>
     <%-include("../partials/header.ejs") %>
-    <a href="/"><button>Back to Main</button></a>
-    <a href="/<%=patient._id%>"><button>Back to Patient Test</button></a>
+
+        <div class="container">
+            <button class = "hamburger" id="hamburgerBtn">
+                <div class="bar"></div>
+            </button>
+
+            <nav class = mobile-nav id="mobile-nav">
+                <a href="/">Home</a>
+                <a href="/new">New Patient</a>
+                <a href="/<%=patient._id%>">Patient Test</a>
+            </nav>
+        </div>
+    </div>
 
     <main>
         <div>
@@ -37,5 +49,6 @@
             </form>
         </div>
     </main>
+    <script src="../public/app.js"></script>
 </body>
 </html>
