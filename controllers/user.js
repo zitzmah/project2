@@ -60,6 +60,6 @@ async function loginSubmit(req, res){
 //Logout route
 async function logout(req, res){
     req.session.destroy((err)=>{
-        res.redirect("/user/login")
+        res.redirect("/")
     })
 }

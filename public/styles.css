@@ -1,25 +1,45 @@
-.hamburger{
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    background: none;
-    border: none
-}
-
-.mobile-nav{
-    display: none;
-    position: fixed;
-    top: 60px;
-    right: 10px;
-    background-color: black;
+header{
     padding: 10px;
-    border: 1px solid black;
 }
 
-.mobile-nav a {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
+body{
+    background-color: #FFEDD2;
+    align-items: center;
+}
+
+h1, h2 {
+    align-items: center;    
+}
+
+fieldset{
+    margin: 0 auto;
+    padding: 1em;
+    margin-bottom: 5vh;
+    max-width: 60vh;
+}
+
+.container{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 3vh;
+    position:absolute; 
+    left:130vh; 
+    top:30px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+
+}
+
+.nav-list li{
+    margin-right: 5vh;
 }

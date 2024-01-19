@@ -4,9 +4,15 @@
 <body>
     <%-include("../partials/header.ejs")%>
     <div class="navbar"><a href="/new"><button>Add a New Patient</button></a></div>
+    <div>
+        <a href="user/signup"><button>Signup</button></a>
+        <a href="user/login"><button>Login</button></a>
+        <a href="/user/logout"><button>Logout</button></a>
+    </div>
     
     <main>
         <div>
+
             <% for(let patient of patients){ %>
                 <article>
                     <a href="/<%=patient._id%>">

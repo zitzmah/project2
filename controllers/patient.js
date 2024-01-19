@@ -74,6 +74,8 @@ async function update(req, res){
 //CREATE
 async function create(req, res){
     try{
+        req.body.testCompleted = req.body.testCompleted === "on" ? true: false;
+        req.body.username = req.session.username
         let newPatient = await req.model.Patient.create(req.body)
         res.redirect("/")
     } catch(error){

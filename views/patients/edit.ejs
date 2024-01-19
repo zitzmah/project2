@@ -6,14 +6,13 @@
     <%-include("../partials/header.ejs") %>
 
         <div class="container">
-            <button class = "hamburger" id="hamburgerBtn">
-                <div class="bar"></div>
-            </button>
 
-            <nav class = mobile-nav id="mobile-nav">
-                <a href="/">Home</a>
-                <a href="/new">New Patient</a>
-                <a href="/<%=patient._id%>">Patient Test</a>
+            <nav class = navbar>
+                <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/new">New Patient</a></li>
+                <li><a href="/<%=patient._id%>">Patient Test</a></li>
+            </ul>
             </nav>
         </div>
     </div>

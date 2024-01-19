@@ -6,6 +6,8 @@ const morgan = require("morgan")
 const methodOverride = require("method-override")
 const patientRouter = require("./routes/patients")
 const userRouter = require("./routes/user")
+const session = require("express-session")
+const MongoStore = require("connect-mongo")
 //const mongoose = require("mongoose")
 
 const app = express()
@@ -30,6 +32,12 @@ app.use(morgan("dev"))
 app.use(methodOverride("_method"))
 app.use(express.urlencoded({extended: true}))
 app.use("/public", express.static("public"))
+app.use(session({
+    secret: process.env.SECRET,
+    store: MongoStore.create({mongoUrl: process.env.DATABASE_URL}),
+    saveUninitalized: true,
+    resave: false,
+}))
 
 app.use("/", patientRouter)
 app.use("/user", userRouter)

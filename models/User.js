@@ -1,5 +1,7 @@
+//DEPENDENCIES
 const mongoose = require("mongoose")
 
+//MODELS
 const {Schema, model } = mongoose
 
 const userSchema = new Schema({
