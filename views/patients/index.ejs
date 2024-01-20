@@ -14,7 +14,7 @@
                 <article>
                     <a href="/<%=patient._id%>">
                     <h2>
-                        Name: <%=patient.name %> <br> Date of Birth: <%=patient.dateOfBirth.toLocaleDateString()%>
+                        Name: <%= patient && patient.name %> <br> Date of Birth: <%= patient && patient.dateOfBirth !== null && patient.dateOfBirth !== undefined ? patient.dateOfBirth.toLocaleDateString() : 'N/A' %>
                     </h2>
                     <h3>
                         <%=patient.test%> - <%= patient.testCompleted ? "Test Completed" : "Testing in Progress"%>
