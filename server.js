@@ -8,6 +8,7 @@ const patientRouter = require("./routes/patients")
 const userRouter = require("./routes/user")
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
+const bcrypt = require("bcrypt")
 //const mongoose = require("mongoose")
 
 const app = express()

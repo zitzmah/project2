@@ -23,11 +23,14 @@
             <h3>Date of Birth: <%=patient.dateOfBirth.toLocaleDateString()%></h3>
             <form action="/<%=patient._id%>?_method=PUT" method="post">
                 <fieldset>
+                    <div class="fieldsetDiv">
                     <legend> Update <%=patient.name%>'s Information</legend>
                     <label>Name: <input type="text" name="name" placeholder="patient name" value="<%=patient.name%>"></label>
                     <label>Date of Birth: <input type="date" name="dateOfBirth" value="<%=patient.dateOfBirth.toISOString().split('T')[0]%>"></label>
+                    </div>
                 </fieldset>
                 <fieldset>
+                    <div class="fieldsetDiv">
                     <legend>Update <%=patient.test%></legend>
                     <label>Gram Stain:
                         <select id="gramStain" name="gramStain">
@@ -41,7 +44,7 @@
                     <label>Colony Description: <input type="text" name="colonyDescription" value="<%=patient.colonyDescription%>"></label>
                     <label>Identification: <input type="text" name="bacteriaIdentification" value="<%= patient.bacteriaIdentification !== undefined ? patient.bacteriaIdentification : '' %>"></label>
                     <lable>Test Completed: <input type="checkbox" name="testCompleted" <%patient.testCompleted ? "checked" : ""%>></lable>
-
+                </div>
                 </fieldset>
                 <button>Update Test</button>
 

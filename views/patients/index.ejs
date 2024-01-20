@@ -3,11 +3,8 @@
 <%-include("../partials/head.ejs")%>
 <body>
     <%-include("../partials/header.ejs")%>
-    <div class="navbar"><a href="/new"><button>Add a New Patient</button></a></div>
-    <div>
-        <a href="user/signup"><button>Signup</button></a>
-        <a href="user/login"><button>Login</button></a>
-        <a href="/user/logout"><button>Logout</button></a>
+    <div class="navbar">
+
     </div>
     
     <main>
@@ -25,10 +22,15 @@
                             <br> Culture Identification: <%=patient.bacteriaIdentification%>
                         <%}%>
                     </h3>
+
+                    <div class="buttonDiv">
+                        <a href="/<%=patient._id%>/edit"><button>Edit Patient Test</button></a>
+                    </div>
+
                     </a>
                 </article>
 
-                <a href="/<%=patient._id%>/edit"><button>Edit Patient Test</button></a>
+                
 
             <%}%>
         </div>

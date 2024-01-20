@@ -1,14 +1,45 @@
 header{
     padding: 10px;
+    justify-content: center;
+    margin: 0;
+    align-items: center;
+    text-align: center;
+    color: #004921;
 }
 
 body{
-    background-color: #FFEDD2;
+    background-color: #FAEBD6;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    background-color: #FAEBD6;
     align-items: center;
+
 }
 
 h1, h2 {
-    align-items: center;    
+    align-items: center; 
+}
+
+article{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newContainer{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nameDiv .DOBDIV {
+    margin-bottom: 5px;
 }
 
 fieldset{
@@ -16,6 +47,8 @@ fieldset{
     padding: 1em;
     margin-bottom: 5vh;
     max-width: 60vh;
+    text-align: center;
+    
 }
 
 .container{
@@ -29,7 +62,8 @@ fieldset{
 }
 
 .navbar{
-    display: flex;
+    position: fixed;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 }
@@ -42,4 +76,31 @@ fieldset{
 
 .nav-list li{
     margin-right: 5vh;
+}
+
+a {
+    color: #004921;
+}
+
+a:hover {
+    color: #F49345;
+}
+
+a:visited{
+    color: #E06C49
+}
+
+button{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    border: 2px solid #8F9F88;
+    text-align: center;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #E1E9D7;
+    color: #004921;
+}
+
+.fieldsetDiv{
+    justify-content: space-between;
+
 }
