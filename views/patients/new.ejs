@@ -21,6 +21,13 @@
                 <div class="nameDiv"><label>Name: <input type="text" name="name"/></label></div>
                 <div class="DOBDIV"><label>Date of Birth: <input type="date" name="dateOfBirth"/></label><br></div>
                 <div class="testDiv">
+
+            </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend> Add a Test</legend>
                 <label>Test: 
                     <select id="testMenu" name="test">
                         <option>Blood Culture</option>
@@ -29,12 +36,13 @@
                         <option>Urine Culture</option>
                     </select>
                 </label>
-            </div>
-
+                <label>Plates: <input type="text" name="plates"></label><br>
+                <label>Colony Description: <input type="text" name="colonyDescription"></label><br>
+                <label>Identification: <input type="text" name="bacteriaIdentification"></label>
+                <lable>Test Completed: <input type="checkbox" name="testCompleted"></lable><br>
+                <input type="submit" value="Create Test">
             </fieldset>
-            <div class="buttonDiv">
-            <button>Add New Patient</button>
-            </div>
+
             </form>
         </div>
     </main>

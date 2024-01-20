@@ -44,6 +44,7 @@
                     <label>Colony Description: <input type="text" name="colonyDescription" value="<%=patient.colonyDescription%>"></label>
                     <label>Identification: <input type="text" name="bacteriaIdentification" value="<%= patient.bacteriaIdentification !== undefined ? patient.bacteriaIdentification : '' %>"></label>
                     <lable>Test Completed: <input type="checkbox" name="testCompleted" <%patient.testCompleted ? "checked" : ""%>></lable>
+                    <input type="submit" value="Update Test">
                 </div>
                 </fieldset>
                 <button>Update Test</button>
