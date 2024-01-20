@@ -29,12 +29,13 @@ async function newForm(req, res){
 //DELETE
 async function destroy(req, res){
     try{
-        let deletedPatient = await req.model.Patient.findByIdAndDelete(req.params.id)
+        const deletedPatient = await req.model.Patient.findByIdAndDelete(req.params.id)
         res.redirect("/")
     } catch (error) {
         res.status(400).send("error, read logs for details")
     }
 }
+
 
 //UPDATE
 async function update(req, res){

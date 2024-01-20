@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 
 const patientSchema = new mongoose.Schema ({
     name: {type: String, required: true},
-    dateOfBirth: {type: Date, required: true},
+    dateOfBirth: Date,
     test: String,
     testCompleted: Boolean,
     gramStain: String,
