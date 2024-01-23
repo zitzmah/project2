@@ -11,6 +11,10 @@
                     <%= patient.name%>
                 </h2>
                 <h3><%=patient.dateOfBirth.toLocaleDateString()%> <br> <%=patient.testCompleted ? "Test Completed" : "Test In Progress"%></h3>
+                <%if (patient.testCompleted) {%>
+                    <h2>Bacteria Identified: <%= patient.bacteriaIdentification%></h2>
+                <%}%>
+                
                 <div>
                     <nav>
                         <a href="/"><button>Back to Main</button></a>

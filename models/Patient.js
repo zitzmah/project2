@@ -12,7 +12,8 @@ const patientSchema = new mongoose.Schema ({
     gramStain: String,
     plates: String,
     colonyDescription: String,
-    bacteriaIdentification: String
+    bacteriaIdentification: String,
+    username: String
 })
 
 

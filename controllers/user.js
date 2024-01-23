@@ -1,3 +1,6 @@
+const bcrypt = require("bcrypt")
+const User = require("../models/User.js")
+
 module.exports = {
     signup,
     signupSubmit,
@@ -44,7 +47,7 @@ async function loginSubmit(req, res){
         if (!user){
             throw new Error("User Error: User doesn't exist")
         }
-        const result = await bcrypt.compare(password, user.password)
+        const result = await bcrypt.compareSync(password, user.password)
         if(!result){
             throw new Error("User Error: Password Doesn't Match")
         }

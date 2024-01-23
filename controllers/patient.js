@@ -13,6 +13,7 @@ module.exports = {
 //INDEX
 async function index(req, res){
     try{
+        const username = req.session.username
         let patients = await req.model.Patient.find({})
         res.render("patients/index.ejs", {patients: patients.reverse()})
     } catch(error){
